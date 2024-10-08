@@ -1,11 +1,15 @@
+import { Counter } from "./components/common/counter/Counter";
+import { Footer } from "./components/layout/footer/Footer";
 import { Navbar } from "./components/layout/navbar/Navbar";
-import { Home } from "./components/pages/home/Home";
+import { ItemListContainer } from "./components/pages/itemListContainer/ItemListContainer";
 
 function App() {
   return (
     <div>
       <Navbar />
-      <Home />
+      < ItemListContainer greeting="Bienvenido!" />
+      <Footer />
+      <Counter />
     </div>
   );
 }

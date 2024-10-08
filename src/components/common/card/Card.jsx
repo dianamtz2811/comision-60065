@@ -1,11 +1,13 @@
 import "./card.css"
 
-export const Card = () => {
+export const Card = ({ title, price, stock }) => {
+
+
     return (
-        <main>
-            <div>
-                <h2>Producto 1</h2>
-            </div>
-        </main>
-    )
+        <div className="container-card">
+            <h2>Título: {title}</h2>
+            <h3>Precio: {price}</h3>
+            <h3>Stock: {stock}</h3>
+        </div>
+    );
 };

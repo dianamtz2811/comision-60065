@@ -1,8 +1,9 @@
 .container-navbar {
-    background-color: rgb(65, 65, 65);
+    background-color: rgb(255, 193, 248);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 15px;
 }
 
 #image {

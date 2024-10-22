@@ -1,16 +1,24 @@
+import { useState } from "react";
 import { Counter } from "./components/common/counter/Counter";
 import { Footer } from "./components/layout/footer/Footer";
 import { Navbar } from "./components/layout/navbar/Navbar";
 import { ItemListContainer } from "./components/pages/itemListContainer/ItemListContainer";
 
 function App() {
+  
+  const [ darkMode, setDarkMode] = useState(true);
+  const cambiarModo = () =>{
+    setDarkMode( !darkMode );
+  };
+
   return (
-    <div>
-      <Navbar />
-      < ItemListContainer greeting="Bienvenido!" />
+    <>
+    <button onClick={cambiarModo}>Cambiar Modo</button>
+      <Navbar darkMode = {darkMode} />
+      < ItemListContainer greeting="Bienvenido!" darkMode = {darkMode}/>
       <Footer />
       <Counter />
-    </div>
+    </>
   );
 }
 

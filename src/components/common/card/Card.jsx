@@ -1,8 +1,7 @@
 import "./card.css"
 import Grid from '@mui/material/Grid2';
 
-export const Card = ({ title, price, stock }) => {
-
+export const Card = ({ title, price, stock, image }) => {
 
     return (
         
@@ -16,6 +15,14 @@ export const Card = ({ title, price, stock }) => {
             </Grid>
             <Grid size={6}>
                 <h3>Stock: {stock}</h3>
+            </Grid>
+            <Grid size={6}>
+                <img
+                src={image}
+                style={{
+                    width:"100px"
+                }}
+                />
             </Grid>
         </div>
         </Grid>

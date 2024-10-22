@@ -1,12 +1,45 @@
-import { Card } from "../../common/card/Card"
+import { ItemList } from "../../common/itemList/ItemList";
+import { products } from "../../../products";
+import "./itemListCOntainer.css"
+import { useEffect, useState } from "react";
 
-export const ItemListContainer = ({ greeting }) => {
+// .then sirve para capturar cuando se resuelve la promise
+// .catch sirve para capturar cuando se rechaza la promise
+
+let myProductsPromise = new Promise((res,rej) => {
+    setTimeout(() =>{
+        if (products.length == 0){
+            rej("Productos vacíos");
+        }else {
+        res(products);
+        }   
+    }, 2500);
+});
+
+export const ItemListContainer = ({ greeting, darkMode }) => {
+
+    const [myProducts, setMyProducts] = useState([])
+
+    useEffect (() => {
+        myProductsPromise
+        .then((data) => {
+            setMyProducts(data);
+        }).catch((err) => {
+            console.log(err);
+        });
+}, []);
+
+console.log(myProducts);
+
+/* const myProductsConMap = myProducts.map((prod) => prod.title);
+console.log(myProductsConMap)  */
+
     return (
-    <div>
+    <div className={ darkMode ? "container-itemlist-dark itemlist" : "container-itemlist itemlist"}>
         <h1>{greeting}</h1>
-        <Card title="Bosque" price={50} stock={5} />
-        <Card title="Feria" price={150} stock={3} />
-        <Card title="Plantas" price={80} stock={7} />
+        <ItemList myProducts={myProducts} />
     </div>
-    )
-}
+    );
+};
+
+

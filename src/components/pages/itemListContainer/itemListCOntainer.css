@@ -1,0 +1,16 @@
+.h1 {
+    display: grid;
+
+}
+.itemlist {
+    display: flexbox;
+}
+
+.container-itemlist {
+    background-color: rgb(179, 230, 230);
+}
+
+.container-itemlist-dark {
+    background-color: rgb(27, 23, 49);
+    color: azure;
+}

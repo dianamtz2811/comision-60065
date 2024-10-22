@@ -3,6 +3,7 @@ import { Counter } from "./components/common/counter/Counter";
 import { Footer } from "./components/layout/footer/Footer";
 import { Navbar } from "./components/layout/navbar/Navbar";
 import { ItemListContainer } from "./components/pages/itemListContainer/ItemListContainer";
+import {FetchingData} from "./components/pages/fetchingData/FetchingData";
 
 function App() {
   
@@ -15,7 +16,8 @@ function App() {
     <>
     <button onClick={cambiarModo}>Cambiar Modo</button>
       <Navbar darkMode = {darkMode} />
-      < ItemListContainer greeting="Bienvenido!" darkMode = {darkMode}/>
+      {/* < ItemListContainer greeting="Bienvenido!" darkMode = {darkMode}/> */}
+      <FetchingData />
       <Footer />
       <Counter />
     </>

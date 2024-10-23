@@ -1,4 +1,4 @@
-import { ItemList } from "../../common/itemList/ItemList";
+import { ItemList } from "./ItemList";
 import { products } from "../../../products";
 import "./itemListCOntainer.css"
 import { useEffect, useState } from "react";

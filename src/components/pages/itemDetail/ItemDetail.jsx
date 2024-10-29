@@ -5,6 +5,7 @@ export const ItemDetail = ({ item }) => {
         <h2> Título: { item.title } </h2>
         <h3> Precio: { item.price } </h3>
         <p>Descripción: { item.description } </p>
+        <img src= { item.imageURL } width="500"/>
     </div>
     );
 };

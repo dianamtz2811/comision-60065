@@ -1,16 +1,20 @@
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 15px;
 }
 .container-navbar {
-    background-color: rgb(176, 228, 228);
+    background-color: rgb(189, 156, 202);
 }
 
 .container-navbar-dark {
     background-color: rgb(40, 36, 104);
     color: azure;
+}
+
+li {
+    list-style: none;
 }
 
 #image {

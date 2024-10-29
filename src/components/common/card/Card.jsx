@@ -1,6 +1,7 @@
 import "./card.css"
+import { Link } from "react-router-dom"
 
-export const Card = ({ title, price, stock, image }) => {
+export const Card = ({ title, price, stock, image, id }) => {
 
     return (
     <div className="container-card">
@@ -13,7 +14,9 @@ export const Card = ({ title, price, stock, image }) => {
                 width:"100px",
                 }}
         />
+        <Link to={`/itemDetail/${id}`}>
         <button>Ver detalle</button>
+        </Link>
     </div>
     );
 };

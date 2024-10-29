@@ -20,6 +20,7 @@ export const ItemList = ( { myProducts } ) => {
             price={price}
             stock={stock}
             image={imageURL}
+            id={id}
         />
     ))}
 </div>

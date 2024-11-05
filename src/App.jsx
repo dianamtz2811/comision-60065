@@ -3,6 +3,7 @@ import { ItemListContainer } from "./components/pages/itemListContainer/ItemList
 import { ItemDetailContainer } from "./components/pages/itemDetail/ItemDetailContainer"
 import { CartContainer } from "./components/pages/cart/CartContainer"
 import { Navbar } from "./components/layout/navbar/Navbar"
+import Checkout from "./components/pages/checkout/Checkout"
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/category/:category" element={<ItemListContainer />} />
         <Route path="/cart" element={<CartContainer/>} />
         <Route path="/itemDetail/:id" element={<ItemDetailContainer/>} />
+        <Route path="/checkout" element={<Checkout/>}/>
         <Route path="*" element={<h2>404 not found</h2>} />
       </Routes>
     </BrowserRouter>

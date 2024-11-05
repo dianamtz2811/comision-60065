@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { products } from "../../../products";
-import { ItemDetail } from "./itemDetail";
+import { ItemDetail } from "./ItemDetail";
 import { useParams } from "react-router-dom";
 
 
@@ -14,7 +14,12 @@ export const ItemDetailContainer = () => {
         let productSelected = products.find((producto) => producto.id === id );
         setItem(productSelected);
     }, [id]);
-    
-    return <ItemDetail item={item}/>;
+
+        const agregarAlCarrito = (cantidad) => {
+        let objeto = { ...item, quantity: cantidad }
+        console.log(objeto)
+    };
+
+    return <ItemDetail item={item} agregarAlCarrito={agregarAlCarrito}/>;
 };
 

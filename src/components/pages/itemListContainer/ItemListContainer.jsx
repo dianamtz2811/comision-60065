@@ -3,33 +3,39 @@ import { products } from "../../../products";
 import "./itemListCOntainer.css"
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Box from '@mui/material/Box';
+import LinearProgress from '@mui/material/LinearProgress';
 
 
-export const ItemListContainer = ({ greeting, darkMode }) => {
+export const ItemListContainer = () => {
 
     const { category } = useParams();
-
     const [myProducts, setMyProducts] = useState([])
 
     useEffect (() => {
-
         const unaFraccion = products.filter((producto) => producto.category === category);
-
         const getProducts = new Promise((resolve) => {
             resolve(category ? unaFraccion : products);
         });
         getProducts.then((res) => {
-            setMyProducts(res);
+            setTimeout(() => {
+                setMyProducts(res);
+            }, 2000);
         });
 }, [category]);
 
-/* const myProductsConMap = myProducts.map((prod) => prod.title);
-console.log(myProductsConMap)  */
+    /* if (myProducts.length === 0) {
+        return <h1>Cargando...</h1>
+    }*/
 
     return (
-    <div className={ darkMode ? "container-itemlist-dark itemlist" : "container-itemlist itemlist"}>
-        <h1>{greeting}</h1>
-        <ItemList myProducts={myProducts} />
+    <div className="container-itemlist">
+        <h2>Congelando la ciudad en fotos</h2>
+        { myProducts.length === 0 ?
+        <Box sx={{ width: "100%"}}>
+        <LinearProgress />
+        </Box> : <ItemList myProducts={myProducts} /> }
+        <h4>Sígenos en Behance</h4>
     </div>
     );
 };

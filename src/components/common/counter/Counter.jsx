@@ -1,10 +1,14 @@
 import { useState } from "react";
 
-export const Counter = ({ stock, agregarAlCarrito }) => {
+export const Counter = ({ stock, agregarAlCarrito, totalInCart }) => {
     const [contador, setContador] = useState(1);
 
         const suma = () => {
-            stock > contador ? setContador(contador+1) : alert("Stock máximo")
+            if ( stock - totalInCart > contador) {
+                setContador(contador+1);
+            } else {
+                alert("No hay stock suficiente");
+            }
         };
         const resta = () => {
             contador > 1 && setContador(contador - 1)

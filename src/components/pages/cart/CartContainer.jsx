@@ -4,7 +4,9 @@ import { CartContext } from "../../context/CartContext";
 
 export const CartContainer = () => {
 
-    const { cart, resetCart, removeById } = useContext(CartContext);
+    const { cart, resetCart, removeById, getTotalAmount } = useContext(CartContext);
+
+    let totalEnELCarrito = getTotalAmount();
 
         return (
         <div>
@@ -23,8 +25,10 @@ export const CartContainer = () => {
                     );
         })}
 
-                <button onClick={resetCart}>Limpiar carrito</button>
-            <Link to="/checkout">Finalizar compra</Link>
+        {cart.length > 0 && <button onClick={resetCart}>Limpiar carrito</button>}
+
+        <h2 style={{ color: cart.length > 0 ? "blue" : "red"}}>El total a pagar es {totalEnELCarrito}</h2>
+        <Link to="/checkout">Finalizar compra</Link>
         </div>
         );
 };

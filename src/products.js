@@ -1,6 +1,6 @@
 export const products = [
-    {
-        id: "1",
+    /*{
+        //id: "1",
         title:"Feria",
         price: 200,
         stock: 5,
@@ -10,7 +10,7 @@ export const products = [
         category: "urbanas",
     },
     {
-        id: "2",
+        //id: "2",
         title:"Mercado",
         price: 250,
         stock: 6,
@@ -18,9 +18,9 @@ export const products = [
         description: "Un mercado mexicano",
         brand: "abs_rta",
         category: "mercados",
-    },
+    },*/
     {
-        id: "3",
+        //id: "3",
         title:"Skate",
         price: 300,
         stock: 3,
@@ -30,7 +30,7 @@ export const products = [
         category: "urbanas",
     },
     {
-        id: "4",
+        //id: "4",
         title:"Duraznos",
         price: 150,
         stock: 2,
@@ -40,7 +40,7 @@ export const products = [
         category: "mercados",
     },
     {
-        id: "5",
+        //id: "5",
         title:"Brujito",
         price: 400,
         stock: 8,
@@ -50,7 +50,7 @@ export const products = [
         category: "animales",
     },
     {
-        id: "6",
+        //id: "6",
         title:"Loro",
         price: 500,
         stock: 9,

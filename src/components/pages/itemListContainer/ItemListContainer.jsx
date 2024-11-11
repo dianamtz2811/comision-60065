@@ -1,10 +1,12 @@
 import { ItemList } from "./ItemList";
-import { products } from "../../../products";
 import "./itemListCOntainer.css"
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
+import { db } from "../../../firebaseConfig";
+import { collection, getDocs, query, where, addDoc } from "firebase/firestore";
+import { products } from "../../../products";
 
 
 export const ItemListContainer = () => {
@@ -13,19 +15,30 @@ export const ItemListContainer = () => {
     const [myProducts, setMyProducts] = useState([])
 
     useEffect (() => {
-        const unaFraccion = products.filter((producto) => producto.category === category);
-        const getProducts = new Promise((resolve) => {
-            resolve(category ? unaFraccion : products);
-        });
-        getProducts.then((res) => {
-            setTimeout(() => {
-                setMyProducts(res);
-            }, 2000);
+        const productsCollection = collection(db, "products");
+
+        let docsRef = productsCollection;
+        if (category) {
+            docsRef = query(productsCollection, where("category", "==", category));
+        }
+        getDocs(docsRef).then((res) => {
+            let arrayEntendible = res.docs.map((doc) => {
+                return{ ...doc.data(), id: doc.id };
+            });
+        setMyProducts(arrayEntendible);
         });
 }, [category]);
 
     /* if (myProducts.length === 0) {
         return <h1>Cargando...</h1>
+    }*/
+
+    /*const funcionParaAgregar = () => {
+    const productsCollection = collection(db, "products");
+        
+        products.forEach((product) => {
+            addDoc(productsCollection, product);
+        });
     }*/
 
     return (
@@ -36,6 +49,8 @@ export const ItemListContainer = () => {
         <LinearProgress />
         </Box> : <ItemList myProducts={myProducts} /> }
         <h4>Sígenos en Behance</h4>
+
+        {/*<button onClick={funcionParaAgregar}>Cargar Productos</button>*/}
     </div>
     );
 };
